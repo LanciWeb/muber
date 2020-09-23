@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/muber');
+if (process.env.NODE_ENV !== 'test')
+  mongoose.connect(`mongodb://localhost/muber`);
 
 //! always BEFORE app
 app.use(bodyParser.json());
