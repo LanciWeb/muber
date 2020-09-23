@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+const Driver = require('../models/driver');
+
 module.exports = {
   greeting: (req, res) => {
     res.send({ hi: 'there' });
   },
 
   create: (req, res) => {
-    /* const data = req.body;
-    res.send(); */
+    const driverData = req.body;
+    Driver.create(driverData).then((driver) => res.send(driver));
   },
 };
