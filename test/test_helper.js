@@ -10,3 +10,11 @@ before((done) => {
       console.warn('Warning', err);
     });
 });
+
+beforeEach((done) => {
+  const { drivers } = mongoose.connection.collections;
+  drivers
+    .drop()
+    .then(() => done())
+    .catch(() => done());
+});
