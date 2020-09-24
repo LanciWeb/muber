@@ -26,3 +26,15 @@
  * -R specifies how the output should be printed
  * "min" associated with -R minimizes the output and clears previous tests in the console.
  */
+
+//TODO 5 - Define a test environment variable
+/**
+ * in the package.json file, we can add an environment like this:
+ *  | "NODE_ENV=test nodemon --exec \"mocha --recursive -R min\""
+ * */
+
+//TODO 6 - test_helper.js file
+/**
+ * we can create a test_helper.js file in the test folder and write some code that will be executed when we run tests.
+ * We can use that to connect the DB, and / or to clean the database before each round of test.
+ */
