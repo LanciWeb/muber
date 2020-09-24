@@ -30,8 +30,10 @@
 //TODO 5 - Define a test environment variable
 /**
  * in the package.json file, we can add an environment like this:
- *  | "NODE_ENV=test nodemon --exec \"mocha --recursive -R min\""
- * */
+ *  | "cross-env NODE_ENV=test nodemon --exec \"mocha --recursive -R min\""
+ * ! we need to install the cross-env package on Windows and to add 'cross-env before NODE_ENV
+ *
+ */
 
 //TODO 6 - test_helper.js file
 /**
