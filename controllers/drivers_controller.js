@@ -5,7 +5,7 @@ module.exports = {
     res.send({ hi: 'there' });
   },
 
-  create: (req, res) => {
+  create: (req, res, next) => {
     const driverData = req.body;
     Driver.create(driverData)
       .then((driver) => res.send(driver))
