@@ -21,7 +21,7 @@ describe('driver controllers tests', () => {
 
   it('PUT to api/drivers:id edits an existing driver', (done) => {
     const driver = new Driver({ email: 'test@drivers.it' });
-    driver.save().then((driver) => {
+    driver.save().then(() => {
       request(app)
         .put(`/api/drivers/${driver._id}`)
         .send({ driving: true })
@@ -31,6 +31,20 @@ describe('driver controllers tests', () => {
           }).then((driver) => assert(driver.driving === true));
           done();
         });
+    });
+  });
+
+  it('DELETE to api/drivers/:id', (done) => {
+    const driver = new Driver({ email: 'test@test.it' });
+    driver.save().then(() => {
+      request(app)
+        .delete(`/api/drivers/${driver._id}`)
+        .end(() =>
+          Driver.findOne({ email: 'test@test.it' }).then((driver) => {
+            assert(driver === null);
+            done();
+          })
+        );
     });
   });
 });
