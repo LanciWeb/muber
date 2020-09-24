@@ -15,6 +15,7 @@ beforeEach((done) => {
   const { drivers } = mongoose.connection.collections;
   drivers
     .drop()
+    .then(() => drivers.createIndexes({ 'geometry.coordinates': '2dsphere' }))
     .then(() => done())
     .catch(() => done());
 });
