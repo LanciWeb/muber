@@ -7,6 +7,8 @@ module.exports = {
 
   create: (req, res) => {
     const driverData = req.body;
-    Driver.create(driverData).then((driver) => res.send(driver));
+    Driver.create(driverData)
+      .then((driver) => res.send(driver))
+      .catch(next);
   },
 };
